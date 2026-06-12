@@ -5,7 +5,7 @@
 1. Спроектируйте to be архитектуру КиноБездны, разделив всю систему на отдельные домены и организовав интеграционное взаимодействие и единую точку вызова сервисов.
 Результат представьте в виде контейнерной диаграммы в нотации С4.
 Добавьте ссылку на файл в этот шаблон
-[Диаграмма микросервисов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/microservices.png)
+[Диаграмма микросервисов](https://github.com/pthrust/cinemaabyss/tree/cinema/schemas/containers/microservices.png)
 
 ## Задание 2
 
@@ -51,7 +51,7 @@
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
 ### 2. Kafka
- Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
+Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
 
 Для этого нужно сделать MVP сервис events, который будет при вызове API создавать и сам же читать сообщения в топике Kafka.
 
@@ -63,7 +63,8 @@
 Приложите скриншот тестов и скриншот состояния топиков Kafka http://localhost:8090 
 
 [Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-api-gateway-result.png)
-[Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-kafka-events.png)
+
+[Результат тестов в kafka ui](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-kafka-events.png)
 
 ## Задание 3
 
@@ -116,7 +117,7 @@ jobs:
 Успешным результатом данного шага является "зеленая" сборка и "зеленые" тесты
 
 [Результат сборки](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-build-and-push-workflow.png)
-[Результат api тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-api-test.png)
+[Результат api тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-api-test-workflow.png)
 
 
 ### Proxy в Kubernetes
