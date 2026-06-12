@@ -115,7 +115,8 @@ jobs:
 Как только сборка отработает и в github registry появятся ваши образы, можно переходить к блоку настройки Kubernetes
 Успешным результатом данного шага является "зеленая" сборка и "зеленые" тесты
 
-[Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-build-and-push-workflow.png)
+[Результат сборки](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-build-and-push-workflow.png)
+[Результат api тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-api-test.png)
 
 
 ### Proxy в Kubernetes
