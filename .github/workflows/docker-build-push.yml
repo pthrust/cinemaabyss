@@ -83,7 +83,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Extract metadata (tags, labels) for Api Gateway Microservice
-        id: meta-movies
+        id: meta-apigateway
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.MOVIES_SERVICE_IMAGE_NAME }}
@@ -104,8 +104,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Extract metadata (tags, labels) for Events Microservice QQ
-        id: meta-movies
+      - name: Extract metadata (tags, labels) for Events Microservice
+        id: meta-events
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.MOVIES_SERVICE_IMAGE_NAME }}
