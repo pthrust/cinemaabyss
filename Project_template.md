@@ -5,8 +5,7 @@
 1. Спроектируйте to be архитектуру КиноБездны, разделив всю систему на отдельные домены и организовав интеграционное взаимодействие и единую точку вызова сервисов.
 Результат представьте в виде контейнерной диаграммы в нотации С4.
 Добавьте ссылку на файл в этот шаблон
-[ссылка на файл](ссылка)
-
+[Диаграмма микросервисов](?/architecture-pro-cinemaabyss/schemas/containers/microservices.png)
 
 ## Задание 2
 
@@ -41,10 +40,14 @@
 ```
 
 - После реализации запустите postman тесты - они все должны быть зеленые.
+[Результат тестов](?/architecture-pro-cinemaabyss/screans/Task2-test-results.png)
+
 - Отправьте запросы к API Gateway:
    ```bash
    curl http://localhost:8000/api/movies
    ```
+[Результат тестов](?/architecture-pro-cinemaabyss/screans/Task2-api-gateway-result.png)
+
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
 ### 2. Kafka
@@ -59,6 +62,8 @@
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka http://localhost:8090 
 
+[Результат тестов](?/architecture-pro-cinemaabyss/screans/Task2-api-gateway-result.png)
+[Результат тестов](?/architecture-pro-cinemaabyss/screans/Task2-kafka-events.png)
 
 ## Задание 3
 

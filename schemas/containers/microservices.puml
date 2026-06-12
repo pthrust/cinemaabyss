@@ -1,0 +1,45 @@
+@startuml microservices
+
+!includeurl ../include/C4_Component.puml
+
+title Container Diagram - CinemaAbyss (To-Be)
+
+Person(customer, "Customer", "Manages payments, subscriptions, discounts, movie streaming, account, rates")
+Person(employee, "GTM Department", "CinemaAbyss's employee")
+
+System_Boundary(external, "External Services") {
+    System_Ext(payment_system, "Payment", "Payment processing")
+    System_Ext(online_cinemas, "Online cinemas", "Video content sources")
+    System_Ext(s3_storage, "S3 Storage", "Video file storage")
+    System_Ext(recommendation_system, "Recommendation", "Personal movie selections")
+}
+System_Boundary(cinemaabyss, "CinemaAbyss") {
+    Container(api_gateway, "API Gateway", "Microservice", "Management and routing of requests between the legacy system and new microservices")
+    Container(movies_service, "Movies Metadata", "Microservice", "Microservice for movie metadata: genres, actors, descriptions, ratings")
+    Container(monolith, "Monolith", "Legacy App", "Remaining part of the monolith: customers, subscriptions, payments, favorites")
+    Container(events_service, "Customer Events", "Microservice", "Event processing: views, customer actions")
+    ContainerQueue(kafka, "Kafka", "Service", "Asynchronous event processing between services")
+    ContainerDb(postgres_movies, "Movies Database", "PostgreSQL", "Movie metadata database")
+    ContainerDb(postgres_main, "Leagacy Database", "PostgreSQL", "Customers, subscriptions, payments")
+}
+
+Rel(customer, api_gateway, "HTTP request", "REST API")
+Rel(employee, api_gateway, "HTTP request", "REST API")
+
+Rel(api_gateway, movies_service, "proxied query", "HTTP")
+Rel(api_gateway, monolith, "proxied query", "HTTP")
+Rel(api_gateway, events_service, "proxied query", "HTTP")
+
+Rel(movies_service, kafka, "Publishes events", "Async")
+Rel(monolith, kafka, "Publishes events", "Async")
+Rel(events_service, kafka, "Reads/writes events", "Async")
+
+Rel(movies_service, postgres_movies, "Reads/writes", "SQL")
+Rel(monolith, postgres_main, "Reads/writes", "SQL")
+
+Rel(monolith, payment_system, "Processes payments", "HTTP")
+Rel(monolith, recommendation_system, "Gets recommendations", "RabbitMQ")
+Rel(monolith, online_cinemas, "Receives content", "HTTP")
+Rel(monolith, s3_storage, "Streams video", "HTTP")
+
+@enduml
