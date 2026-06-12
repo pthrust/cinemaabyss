@@ -104,7 +104,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Extract metadata (tags, labels) for Events Microservice
+      - name: Extract metadata (tags, labels) for Events Microservice QQ
         id: meta-movies
         uses: docker/metadata-action@v4
         with:
