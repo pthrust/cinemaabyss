@@ -117,6 +117,7 @@ jobs:
 Успешным результатом данного шага является "зеленая" сборка и "зеленые" тесты
 
 [Результат сборки](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-build-and-push-workflow.png)
+
 [Результат api тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-api-test-workflow.png)
 
 
