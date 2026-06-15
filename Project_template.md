@@ -281,9 +281,13 @@ cat .docker/config.json | base64
   Часть тестов с health-чек упадет, но создание событий отработает.
   Откройте логи event-service и сделайте скриншот обработки событий
 
+  [Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-cinemaabyss-example-com-test.png)
+
 #### Шаг 3
 Добавьте сюда скриншота вывода при вызове https://cinemaabyss.example.com/api/movies и  скриншот вывода event-service после вызова тестов.
 
+[https://cinemaabyss.example.com/api/movies](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-cinemaabyss-example-com.png)
+[Events service pod logs](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-events-service-pod-logs.png)
 
 ## Задание 4
 Для простоты дальнейшего обновления и развертывания вам как архитектуру необходимо так же реализовать helm-чарты для прокси-сервиса и проверить работу 
