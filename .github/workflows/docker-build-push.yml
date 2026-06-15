@@ -86,7 +86,7 @@ jobs:
         id: meta-apigateway
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.MOVIES_SERVICE_IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.PROXY_SERVICE_IMAGE_NAME }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -108,7 +108,7 @@ jobs:
         id: meta-events
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.MOVIES_SERVICE_IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.EVENTS_SERVICE_IMAGE_NAME }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -116,7 +116,7 @@ jobs:
             type=ref,event=branch
             latest
 
-      - name: Build and push Movies Service Docker image
+      - name: Build and push Event Service Docker image
         uses: docker/build-push-action@v4
         with:
           context: ./src/microservices/events
