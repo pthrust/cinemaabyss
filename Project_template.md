@@ -287,6 +287,7 @@ cat .docker/config.json | base64
 Добавьте сюда скриншота вывода при вызове https://cinemaabyss.example.com/api/movies и  скриншот вывода event-service после вызова тестов.
 
 [https://cinemaabyss.example.com/api/movies](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-cinemaabyss-example-com.png)
+
 [Events service pod logs](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-events-service-pod-logs.png)
 
 ## Задание 4
@@ -363,6 +364,8 @@ minikube tunnel
 https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
 
+[Helm logs](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task4-helm.png)
+[https://cinemaabyss.example.com/api/movies](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task4-cinemaabyss-example-com.png)
 
 # Задание 5
 Компания планирует активно развиваться и для повышения надежности, безопасности, реализации сетевых паттернов типа Circuit Breaker и канареечного деплоя вам как архитектору необходимо развернуть istio и настроить circuit breaker для monolith и movies сервисов.
