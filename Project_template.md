@@ -364,7 +364,9 @@ minikube tunnel
 https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
 
+
 [Helm logs](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task4-helm.png)
+
 [https://cinemaabyss.example.com/api/movies](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task4-cinemaabyss-example-com.png)
 
 # Задание 5
@@ -430,7 +432,11 @@ cluster.outbound|8081||movies-service.cinemaabyss.svc.cluster.local;.upstream_rq
 You can see 21 for the upstream_rq_pending_overflow value which means 21 calls so far have been flagged for circuit breaking.
 ```
 
-Приложите скриншот работы circuit breaker'а
+[Balance test begin](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task5-balance-test-begin.png)
+
+[Balance test end](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task5-balance-test-end.png)
+
+[Pending statuses](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task5-pending-status.png)
 
 Удаляем все
 ```bash
