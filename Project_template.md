@@ -5,8 +5,7 @@
 1. Спроектируйте to be архитектуру КиноБездны, разделив всю систему на отдельные домены и организовав интеграционное взаимодействие и единую точку вызова сервисов.
 Результат представьте в виде контейнерной диаграммы в нотации С4.
 Добавьте ссылку на файл в этот шаблон
-[ссылка на файл](ссылка)
-
+[Диаграмма микросервисов](https://github.com/pthrust/cinemaabyss/tree/cinema/schemas/containers/microservices.png)
 
 ## Задание 2
 
@@ -41,14 +40,18 @@
 ```
 
 - После реализации запустите postman тесты - они все должны быть зеленые.
+[Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-test-results.png)
+
 - Отправьте запросы к API Gateway:
    ```bash
    curl http://localhost:8000/api/movies
    ```
+[Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-api-gateway-result.png)
+
 - Протестируйте постепенный переход, изменив переменную окружения MOVIES_MIGRATION_PERCENT в файле docker-compose.yml.
 
 ### 2. Kafka
- Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
+Вам как архитектуру нужно также проверить гипотезу насколько просто реализовать применение Kafka в данной архитектуре.
 
 Для этого нужно сделать MVP сервис events, который будет при вызове API создавать и сам же читать сообщения в топике Kafka.
 
@@ -59,6 +62,9 @@
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka http://localhost:8090 
 
+[Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-api-gateway-result.png)
+
+[Результат тестов в kafka ui](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task2-kafka-events.png)
 
 ## Задание 3
 
@@ -109,6 +115,10 @@ jobs:
 ```
 Как только сборка отработает и в github registry появятся ваши образы, можно переходить к блоку настройки Kubernetes
 Успешным результатом данного шага является "зеленая" сборка и "зеленые" тесты
+
+[Результат сборки](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-build-and-push-workflow.png)
+
+[Результат api тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-api-test-workflow.png)
 
 
 ### Proxy в Kubernetes
@@ -271,9 +281,14 @@ cat .docker/config.json | base64
   Часть тестов с health-чек упадет, но создание событий отработает.
   Откройте логи event-service и сделайте скриншот обработки событий
 
+  [Результат тестов](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-cinemaabyss-example-com-test.png)
+
 #### Шаг 3
 Добавьте сюда скриншота вывода при вызове https://cinemaabyss.example.com/api/movies и  скриншот вывода event-service после вызова тестов.
 
+[https://cinemaabyss.example.com/api/movies](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-cinemaabyss-example-com.png)
+
+[Events service pod logs](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task3-events-service-pod-logs.png)
 
 ## Задание 4
 Для простоты дальнейшего обновления и развертывания вам как архитектуру необходимо так же реализовать helm-чарты для прокси-сервиса и проверить работу 
@@ -350,6 +365,10 @@ https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
 
 
+[Helm logs](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task4-helm.png)
+
+[https://cinemaabyss.example.com/api/movies](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task4-cinemaabyss-example-com.png)
+
 # Задание 5
 Компания планирует активно развиваться и для повышения надежности, безопасности, реализации сетевых паттернов типа Circuit Breaker и канареечного деплоя вам как архитектору необходимо развернуть istio и настроить circuit breaker для monolith и movies сервисов.
 
@@ -413,7 +432,11 @@ cluster.outbound|8081||movies-service.cinemaabyss.svc.cluster.local;.upstream_rq
 You can see 21 for the upstream_rq_pending_overflow value which means 21 calls so far have been flagged for circuit breaking.
 ```
 
-Приложите скриншот работы circuit breaker'а
+[Balance test begin](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task5-balance-test-begin.png)
+
+[Balance test end](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task5-balance-test-end.png)
+
+[Pending statuses](https://github.com/pthrust/cinemaabyss/blob/cinema/screenshots/Task5-pending-status.png)
 
 Удаляем все
 ```bash
